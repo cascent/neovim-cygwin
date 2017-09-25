@@ -1,0 +1,26 @@
+inherit cmake
+
+NAME="neovim"
+VERSION="0.2.0"
+RELEASE=0
+CATEGORY="Editors"
+SUMMARY="Vim-fork focused on extensibility and usability"
+DESCRIPTION="Neovim is a project that seeks to aggressively refactor Vim in order to:
+
+* Simplify maintenance and encourage contributions
+* Split the work between multiple developers
+* Enable advanced UIs without modifications to the core
+* Maximize extensibility"
+HOMEPAGE="https://neovim.io/"
+SRC_URI="https://github.com/neovim/${NAME}/archive/v${VERSION}.tar.gz"
+
+DEPEND="pkgconfig(libuv)
+    pkgconfig(msgpack)
+    pkgconfig(unibilium)
+    pkgconfig(vterm)
+    pkgconfig(termkey)
+    lua-lpeg
+    lua-mpack
+    lua-bit"
+
+CYGCMAKE_ARGS="-DHAS_FSTACK_PROTECTOR_STRONG_FLAG=no -DHAS_FSTACK_PROTECTOR_FLAG=no"

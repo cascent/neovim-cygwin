@@ -1,0 +1,23 @@
+inherit cmake
+
+NAME="msgpack-c"
+VERSION="2.1.5"
+RELEASE=0
+CATEGORY="Libs"
+SUMMARY="MessagePack implementation for C and C++"
+DESCRIPTION="MessagePack is an efficient binary serialization format, which lets you exchange data among multiple languages like JSON, except that it's faster and smaller. Small integers are encoded into a single byte while typical short strings require only one extra byte in addition to the strings themselves."
+HOMEPAGE="https://github.com/msgpack/msgpack-c"
+SRC_URI="https://github.com/msgpack/${NAME}/releases/download/cpp-${VERSION}/msgpack-${VERSION}.tar.gz"
+
+SRC_DIR="msgpack-${VERSION}"
+
+PKG_NAMES="libmsgpackc2 libmsgpackc-devel"
+
+libmsgpackc2_CONTENTS="usr/bin/ usr/share/doc/"
+libmsgpackc2_SUMMARY="${SUMMARY}"
+
+libmsgpackc_devel_CONTENTS="usr/include/ usr/lib/*.dll.a usr/lib/pkgconfig usr/lib/cmake"
+libmsgpackc_devel_SUMMARY="${SUMMARY} (development)"
+
+# example/cpp03/stream.cpp does not compile, just skip examples
+CYGCMAKE_ARGS="-DMSGPACK_BUILD_EXAMPLES=OFF"

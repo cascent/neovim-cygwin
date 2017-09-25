@@ -1,0 +1,34 @@
+NAME="unibilium"
+VERSION="1.2.1"
+RELEASE=0
+
+CATEGORY="Libs"
+SUMMARY="a terminfo parsing library"
+DESCRIPTION="Unibilium is a very basic terminfo library. It can read and write ncurses-style terminfo files. It doesn't depend on curses or any other library. It also doesn't use global variables, so it should be thread-safe."
+
+HOMEPAGE="https://github.com/mauke/${NAME}"
+SRC_URI="https://github.com/mauke/${NAME}/archive/v${VERSION}.tar.gz"
+
+PKG_NAMES="lib${NAME}0 lib${NAME}-devel lib${NAME}-doc"
+
+libunibilium0_CONTENTS="usr/bin/ usr/share/doc/"
+libunibilium0_SUMMARY="${SUMMARY}"
+
+libunibilium_devel_CONTENTS="usr/include/ usr/lib/*.dll.a usr/lib/pkgconfig"
+libunibilium_devel_SUMMARY="${SUMMARY} (development)"
+
+libunibilium_doc_CONTENTS="usr/share/man"
+libunibilium_doc_SUMMARY="${SUMMARY} (API documentation)"
+
+LDFLAGS="-no-undefined"
+
+src_compile() {
+    cd ${B}
+    lndirs
+    cygmake PREFIX=/usr 
+}
+
+src_install() {
+    cd ${B}
+    cyginstall PREFIX=/usr
+}

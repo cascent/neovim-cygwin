@@ -1,0 +1,33 @@
+NAME="libvterm"
+VERSION="0+bzr681"
+RELEASE=0
+
+CATEGORY="Libs"
+SUMMARY="abstract library implementation of a VT220/xterm/ECMA-48 terminal emulator"
+DESCRIPTION="An abstract C99 library which implements a VT220 or xterm-like terminal emulator. It doesn't use any particular graphics toolkit or output system, instead it invokes callback function pointers that its embedding program should provide it to draw on its behalf. It avoids calling malloc() during normal running state, allowing it to be used in embedded kernel situations."
+HOMEPAGE="http://www.leonerd.org.uk/code/${NAME}/"
+SRC_URI="http://www.leonerd.org.uk/code/${NAME}/${NAME}-${VERSION}.tar.gz"
+
+LDFLAGS="-no-undefined"
+
+PKG_NAMES="${NAME}0 ${NAME}-bin ${NAME}-devel"
+
+libvterm0_CONTENTS="usr/bin/*.dll usr/share/doc/"
+libvterm0_SUMMARY="${SUMMARY}"
+
+libvterm_bin_CONTENTS="usr/bin/*.exe"
+libvterm_bin_SUMMARY="${SUMMARY} (demo programs)"
+
+libvterm_devel_CONTENTS="usr/include/ usr/lib/*.dll.a usr/lib/pkgconfig"
+libvterm_devel_SUMMARY="${SUMMARY} (development)"
+
+src_compile() {
+    cd ${B}
+    lndirs
+    cygmake PREFIX=/usr
+}
+
+src_install() {
+    cd ${B}
+    cyginstall PREFIX=/usr
+}
