@@ -1,0 +1,10 @@
+diff --color -urh origsrc/neovim-0.2.0/test/functional/fixtures/CMakeLists.txt src/neovim-0.2.0/test/functional/fixtures/CMakeLists.txt
+--- origsrc/neovim-0.2.0/test/functional/fixtures/CMakeLists.txt	2017-05-01 16:13:23.000000000 -0400
++++ src/neovim-0.2.0/test/functional/fixtures/CMakeLists.txt	2017-09-30 21:21:51.262177600 -0400
+@@ -1,5 +1,5 @@
+ add_executable(tty-test tty-test.c)
+-target_link_libraries(tty-test ${LIBUV_LIBRARIES})
++target_link_libraries(tty-test ${LIBUV_LIBRARIES} -lssp)
+ 
+ add_executable(shell-test shell-test.c)
+ add_executable(printargs-test printargs-test.c)

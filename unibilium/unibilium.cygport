@@ -7,7 +7,7 @@ SUMMARY="a terminfo parsing library"
 DESCRIPTION="Unibilium is a very basic terminfo library. It can read and write ncurses-style terminfo files. It doesn't depend on curses or any other library. It also doesn't use global variables, so it should be thread-safe."
 
 HOMEPAGE="https://github.com/mauke/${NAME}"
-SRC_URI="https://github.com/mauke/${NAME}/archive/v${VERSION}.tar.gz"
+SRC_URI="https://github.com/mauke/${NAME}/archive/v${VERSION}.tar.gz#/${PN}-${PV}.tar.gz"
 
 PKG_NAMES="lib${NAME}0 lib${NAME}-devel lib${NAME}-doc"
 

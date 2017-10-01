@@ -2,7 +2,7 @@ inherit cmake
 
 NAME="neovim"
 VERSION="0.2.0"
-RELEASE=0
+RELEASE=1
 CATEGORY="Editors"
 SUMMARY="Vim-fork focused on extensibility and usability"
 DESCRIPTION="Neovim is a project that seeks to aggressively refactor Vim in order to:
@@ -12,7 +12,9 @@ DESCRIPTION="Neovim is a project that seeks to aggressively refactor Vim in orde
 * Enable advanced UIs without modifications to the core
 * Maximize extensibility"
 HOMEPAGE="https://neovim.io/"
-SRC_URI="https://github.com/neovim/${NAME}/archive/v${VERSION}.tar.gz"
+SRC_URI="https://github.com/neovim/${NAME}/archive/v${VERSION}.tar.gz#/${PN}-${PV}.tar.gz"
+
+PATCH_URI="hardcode-lssp-for-tty-test.patch"
 
 DEPEND="pkgconfig(libuv)
     pkgconfig(msgpack)
@@ -21,6 +23,8 @@ DEPEND="pkgconfig(libuv)
     pkgconfig(termkey)
     lua-lpeg
     lua-mpack
-    lua-bit"
+    lua-bit
+    libiconv-devel
+    libssp0"
 
-CYGCMAKE_ARGS="-DHAS_FSTACK_PROTECTOR_STRONG_FLAG=no -DHAS_FSTACK_PROTECTOR_FLAG=no"
+CYGCMAKE_ARGS="-DNVIM_LINK_LIBRARIES=-lssp"
