@@ -1,9 +1,13 @@
 # neovim-cygport
-Contains cygport files to build [neovim](https://neovim.io/).  Resulting product not ~~heavily~~ tested.
+Contains cygport files to build [neovim](https://neovim.io/), currently 0.2.1, for Cygwin.  Resulting product used by me on a daily basis for all of October 2017, but there's a lot of nvim functionality I've yet to try.
+
+Could these packages be included in Cygwin someday?  Would they be, if submitted appropriately?  I don't like mailing lists (which are inherently millennial-unfriendly not to mention anachronistic) but email seems to be the way to propose official packages... let's find out?
 
 ## Building
 Use [cygport](https://github.com/cygwinports/cygport) to build these.
 
+If you'd like better instructions, or an easier process to use these cygport definitions, please create an issue.  If you've already made an improvemnt, please submit a pull request.
+ 
 ### Build order
 libtermkey has an optional dependency on unibilium, and neovim depends on all the other packages (though lua-mpack is a build time dependency).
 

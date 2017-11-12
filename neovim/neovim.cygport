@@ -1,8 +1,8 @@
 inherit cmake
 
 NAME="neovim"
-VERSION="0.2.0"
-RELEASE=1
+VERSION="0.2.1"
+RELEASE=0
 CATEGORY="Editors"
 SUMMARY="Vim-fork focused on extensibility and usability"
 DESCRIPTION="Neovim is a project that seeks to aggressively refactor Vim in order to:
