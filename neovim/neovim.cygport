@@ -21,6 +21,7 @@ DEPEND="pkgconfig(libuv)
     pkgconfig(unibilium)
     pkgconfig(vterm)
     pkgconfig(termkey)
+    gperf
     lua-lpeg
     lua-mpack
     lua-bit
