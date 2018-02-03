@@ -1,5 +1,5 @@
 NAME="libuv"
-VERSION="1.18.0"
+VERSION="1.19.1"
 RELEASE=0
 
 CATEGORY="Libs"
