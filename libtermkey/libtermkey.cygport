@@ -1,6 +1,6 @@
 NAME="libtermkey"
 VERSION="0.20"
-RELEASE=0
+RELEASE=1
 
 CATEGORY="Libs"
 SUMMARY="easy processing of keyboard entry from terminal-based programs"
@@ -17,7 +17,7 @@ PKG_NAMES="${NAME}1 ${NAME}-devel ${NAME}-doc"
 libtermkey1_CONTENTS="usr/bin/ usr/share/doc/"
 libtermkey1_SUMMARY="${SUMMARY}"
 
-libtermkey_devel_CONTENTS="usr/include/ usr/lib/*.dll.a usr/lib/pkgconfig"
+libtermkey_devel_CONTENTS="usr/include/ usr/lib/*.a usr/lib/pkgconfig"
 libtermkey_devel_SUMMARY="${SUMMARY} (development)"
 
 libtermkey_doc_CONTENTS="usr/share/man"
