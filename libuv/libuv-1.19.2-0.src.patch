@@ -1,6 +1,0 @@
-diff --color -urhN origsrc/libuv-1.14.1/m4/libuv-extra-automake-flags.m4 src/libuv-1.14.1/m4/libuv-extra-automake-flags.m4
---- m4/libuv-extra-automake-flags.m4	1969-12-31 19:00:00.000000000 -0500
-+++ m4/libuv-extra-automake-flags.m4	2017-09-25 14:58:38.141677100 -0400
-@@ -0,0 +1,2 @@
-+ m4_define([UV_EXTRA_AUTOMAKE_FLAGS])
-+
