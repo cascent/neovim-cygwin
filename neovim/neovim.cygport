@@ -1,8 +1,8 @@
 inherit cmake
 
 NAME="neovim"
-VERSION="0.2.2"
-RELEASE=1
+VERSION="0.3.4"
+RELEASE=0
 CATEGORY="Editors"
 SUMMARY="Vim-fork focused on extensibility and usability"
 DESCRIPTION="Neovim is a project that seeks to aggressively refactor Vim in order to:
@@ -24,3 +24,5 @@ DEPEND="pkgconfig(libuv)
     lua-mpack
     lua-bit
     libiconv-devel"
+
+CYGCMAKE_ARGS="-DENABLE_JEMALLOC=off"
