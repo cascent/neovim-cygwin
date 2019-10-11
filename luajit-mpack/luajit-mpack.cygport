@@ -1,0 +1,24 @@
+
+NAME="luajit-mpack"
+VERSION=1.0.8
+RELEASE=0
+CATEGORY="Lua"
+SUMMARY="libmpack lua binding (for LuaJIT)"
+DESCRIPTION="libmpack lua binding"
+HOMEPAGE="https://github.com/libmpack/libmpack-lua"
+SRC_URI="https://github.com/libmpack/libmpack-lua/releases/download/${VERSION}/libmpack-lua-${VERSION}.tar.gz"
+SRC_DIR="libmpack-lua-${VERSION}"
+
+DEPEND="luajit-devel"
+
+src_compile() {
+	#lndirs
+	cd ${B}
+	${CC} ${CFLAGS} $(pkg-config --cflags luajit) -shared -o mpack.dll ${S}/*.c $(pkg-config --libs luajit)
+}
+
+src_install() {
+        LUAJIT_LIBDIR=$(pkg-config --variable=INSTALL_CMOD luajit)
+        dodir $LUAJIT_LIBDIR
+        __doinstall 0755 ${B}/mpack.dll $LUAJIT_LIBDIR
+}
