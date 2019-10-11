@@ -1,7 +1,7 @@
 inherit cmake
 
 NAME="msgpack-c"
-VERSION="3.1.1"
+VERSION="3.2.0"
 RELEASE=0
 CATEGORY="Libs"
 SUMMARY="MessagePack implementation for C and C++"

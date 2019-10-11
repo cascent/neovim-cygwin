@@ -1,0 +1,53 @@
+inherit cmake
+
+# TODO rename to lua-luv??
+NAME="luv"
+SRC_VERSION="1.30.1-1"
+VERSION="1.30.1.1"
+RELEASE=0
+
+CATEGORY="Libs"
+DESCRIPTION="Bare libuv bindings for lua"
+SUMMARY="Bare libuv bindings for lua"
+
+HOMEPAGE="https://github.com/luvit/luv"
+SRC_URI="https://github.com/luvit/luv/releases/download/${SRC_VERSION}/${NAME}-${SRC_VERSION}.tar.gz"
+SRC_DIR="${PN}-${SRC_VERSION}"
+
+PKG_NAMES="libluv1 libluv-devel"
+
+CYGCMAKE_ARGS="-DLUA_BUILD_TYPE=System -DWITH_SHARED_LIBUV=ON -DBUILD_MODULE=OFF -DBUILD_SHARED_LIBS=ON"
+
+libluv1_CONTENTS="usr/bin/*.dll"
+libluv1_SUMMARY="${SUMMARY} - runtime"
+
+libluv_devel_CONTENTS="usr/lib usr/include usr/share"
+libluv_devel_SUMMARY="${SUMMARY} - devel"
+
+#DIFF_EXCLUDES="libuv-extra-automake-flags.m4" 
+
+#src_compile()
+#{
+#  cd ${S}
+  # autogen.sh creates files in m4 and run autoconf
+  # We run also cygautoreconf to make cygport aware
+  # of autoconf usage 
+#  ./autogen.sh
+#  cygautoreconf
+#  cd ${B}
+#  cygconf
+#  cygmake
+#}
+
+src_install()
+{
+  cd ${B}
+  ninja_install
+  dobin cygluv-1.dll 
+}
+
+
+#src_test() {
+#  cd ${B}
+#  cygmake -i check
+#}

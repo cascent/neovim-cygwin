@@ -1,5 +1,5 @@
 NAME="libvterm"
-VERSION="0+bzr681"
+VERSION="0.1.1"
 RELEASE=0
 
 CATEGORY="Libs"
@@ -18,7 +18,7 @@ libvterm0_SUMMARY="${SUMMARY}"
 libvterm_bin_CONTENTS="usr/bin/*.exe"
 libvterm_bin_SUMMARY="${SUMMARY} (demo programs)"
 
-libvterm_devel_CONTENTS="usr/include/ usr/lib/*.dll.a usr/lib/pkgconfig"
+libvterm_devel_CONTENTS="usr/include/ usr/lib/*.a usr/lib/pkgconfig"
 libvterm_devel_SUMMARY="${SUMMARY} (development)"
 
 src_compile() {

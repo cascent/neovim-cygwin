@@ -1,0 +1,1 @@
+hacked at build time: manually edited build.ninja to use -lluajit-5.1 instead of -L/usr/lib/libluajit-5.1.dll.a

@@ -1,0 +1,46 @@
+NAME="libuv"
+VERSION="1.32.0"
+RELEASE=0
+
+CATEGORY="Libs"
+DESCRIPTION="multi-platform support library with a focus on asynchronous I/O"
+SUMMARY="multi-platform support library with a focus on asynchronous I/O"
+
+HOMEPAGE="https://github.com/libuv/libuv"
+SRC_URI="https://github.com/libuv/libuv/archive/v${PV}.tar.gz"
+SRC_DIR="${P}"
+
+PKG_NAMES="libuv-devel libuv1"
+
+libuv1_CONTENTS="usr/bin/cyguv-1.dll"
+libuv1_SUMMARY="${SUMMARY} - runtime"
+
+libuv_devel_CONTENTS="usr/lib usr/include usr/share"
+libuv_devel_SUMMARY="${SUMMARY} - devel"
+
+DIFF_EXCLUDES="libuv-extra-automake-flags.m4" 
+
+src_compile()
+{
+  cd ${S}
+  # autogen.sh creates files in m4 and run autoconf
+  # We run also cygautoreconf to make cygport aware
+  # of autoconf usage 
+  ./autogen.sh
+  cygautoreconf
+  cd ${B}
+  cygconf
+  cygmake
+}
+
+src_install()
+{
+  cd ${B}
+  cyginstall
+}
+
+
+src_test() {
+  cd ${B}
+  cygmake -i check
+}
