@@ -1,10 +1,10 @@
 # neovim-cygport
-Contains cygport files to build [neovim](https://neovim.io/), currently 0.2.2, for Cygwin.  Resulting product used by me on a daily basis for all of October 2017, but there's a lot of nvim functionality I've yet to try.
+Contains cygport files to build [neovim](https://neovim.io/), currently 0.4.2, for Cygwin.  I've used neovim on Cygwin for two years.
 
-[Could these packages be included in Cygwin someday?  Would they be, if submitted appropriately?](https://github.com/cascent/neovim-cygwin/issues/3)  I don't like mailing lists (which are inherently millennial-unfriendly not to mention anachronistic) but email seems to be the way to propose official packages... let's find out?
+[Could these packages be included in Cygwin someday?  Would they be, if submitted appropriately?](https://github.com/cascent/neovim-cygwin/issues/3)  I don't like mailing lists so I haven't tried.
 
 ## Binary packages
-I am now attaching an archive containing x86_64 packages to [tagged releases](https://github.com/cascent/neovim-cygwin/releases).  These can be installed with Cygwin setup.
+There is an ancient x86_64 build of neovim 0.2.2, from December 2017, available as a [tagged release](https://github.com/cascent/neovim-cygwin/releases).  I do not know if this will work with a recent Cygwin installation and do not recommend trying it.
 
 ## Building
 Use [cygport](https://github.com/cygwinports/cygport) to build these.
@@ -12,10 +12,10 @@ Use [cygport](https://github.com/cygwinports/cygport) to build these.
 If you'd like better instructions, or an easier process to use these cygport definitions, please create an issue.  If you've already made an improvement, please submit a pull request.
  
 ### Build order
-libtermkey has an optional dependency on unibilium, and neovim depends on all the other packages (though lua-mpack is a build time dependency).
+luv depends on libuv, libtermkey has an optional dependency on unibilium, and neovim depends on all the other packages (though luajit-mpack and luajit-lpeg are build time dependencies).
 
-1. libuv libvterm lua-mpack msgpack unibilium
-1. libtermkey
+1. libuv libvterm luajit-lpeg luajit-mpack msgpack-c unibilium
+1. libtermkey luv
 1. neovim
 
 ## Installing
