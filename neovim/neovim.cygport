@@ -20,9 +20,8 @@ DEPEND="pkgconfig(libuv)
     pkgconfig(vterm)
     pkgconfig(termkey)
     gperf
-    lua-lpeg
-    lua-mpack
-    lua-bit
+    luajit-lpeg
+    luajit-mpack
     libiconv-devel
     libssp0"
 
